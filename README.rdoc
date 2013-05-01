@@ -1,3 +1,148 @@
-= LoadResourceRails
+= LoadResourceRails {<img src="https://badge.fury.io/rb/load_resource_rails.png" alt="Gem Version" />}[http://badge.fury.io/rb/load_resource_rails]
+
+Wiki[https://github.com/yakko/load_resource_rails/wiki] | RubyGems[https://rubygems.org/gems/load_resource_rails]
+
+LoadResourceRails an elegant way of loading resorces in your restful controllers.
+
+== Installation
+
+In <b>Rails 3</b> and <b>Rails 4</b>, add this to your Gemfile and run the +bundle+ command.
+
+  gem "load_resource_rails"
+
+  bundle
+
+Then run the install generator
+
+  rails g load_resource_rails:install
+
+== Instructions
+
+== 1. Using the command
+
+  class CleanersController < ApplicationController
+    before_action :define_cleaner
+
+    private
+      # Use callbacks to share common setup or constraints between actions.
+      def define_cleaner
+
+        load_resource do
+          before                                      { # load your nested resource's parent here if you need one }
+          for_action(:index)                          { @cleaners = Cleaner.all                }
+          for_action(:new)                            { @cleaner  = Cleaner.new                }
+          for_action(:create)                         { @cleaner  = Cleaner.new(cleaner_params) }
+          for_action(:show, :edit, :update, :destroy) { @cleaner  = Cleaner.find(params[:id])  }
+          after                                       { # run your authorization logic here if you need one }
+        end
+        
+      end
+
+  end
+
+== 2. Enjoy your clean controller
+
+  class CleanersController < ApplicationController
+    before_action :define_cleaner
+
+    # GET /cleaners
+    def index
+    end
+
+    # GET /cleaners/1
+    def show
+    end
+
+    # GET /cleaners/new
+    def new
+      
+    end
+
+    # GET /cleaners/1/edit
+    def edit
+    end
+
+    # POST /cleaners
+    def create
+      if @cleaner.save
+        redirect_to @cleaner, notice: 'Cleaner was successfully created.'
+      else
+        render action: 'new'
+      end
+    end
+
+    # PATCH/PUT /cleaners/1
+    def update
+      if @cleaner.update(cleaner_params)
+        redirect_to @cleaner, notice: 'Cleaner was successfully updated.'
+      else
+        render action: 'edit'
+      end
+    end
+
+    # DELETE /cleaners/1
+    def destroy
+      @cleaner.destroy
+      redirect_to cleaners_url, notice: 'Cleaner was successfully destroyed.'
+    end
+
+  end
+
+
+== 3. Nested Routes
+
+Given that
+
+Company has_many :clears
+
+  class CleanersController < ApplicationController
+    before_action :define_cleaner
+
+    private
+      # Use callbacks to share common setup or constraints between actions.
+      def define_cleaner
+
+        load_resource do
+          before                                      { @company = Company.find(params[:company_id]) }
+          for_action(:index)                          { @cleaners = @company.cleaners                }
+          for_action(:new)                            { @cleaner  = @company.cleaners.build                }
+          for_action(:create)                         { @cleaner  = @company.cleaners.build(cleaner_params) }
+          for_action(:show, :edit, :update, :destroy) { @cleaner  = @company.cleaners.find(params[:id])  }
+        end
+        
+      end
+
+  end
+
+
+== 4. Authorization
+
+  class CleanersController < ApplicationController
+    before_action :define_cleaner
+
+    private
+      # Use callbacks to share common setup or constraints between actions.
+      def define_cleaner
+
+        load_resource do
+          before                                      { @company = Company.find(params[:company_id]) }
+          for_action(:index)                          { ... }
+          for_action(:new)                            { ... }
+          for_action(:create)                         { ... }
+          for_action(:show, :edit, :update, :destroy) { @cleaner  = @company.cleaners.find(params[:id])  }
+          after do
+            if @company.manager == current_user
+              flash[:alert] = "You need to be the manager for #{@company.name} to access this area."
+              redirect_to root_path
+            end
+          end
+        end
+        
+      end
+
+  end
+
+
+
 
 This project rocks and uses MIT-LICENSE.

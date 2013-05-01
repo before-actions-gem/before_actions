@@ -56,7 +56,7 @@ Company has_many :clears
 {<img src="readme_images/nested.png" alt="image" />}[https://github.com/yakko/load_resource]
 
 
-== 4. Authorization
+== 4. Authorization made easy
 
 {<img src="readme_images/authorization.png" alt="image" />}[https://github.com/yakko/load_resource]
 

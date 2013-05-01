@@ -1,4 +1,4 @@
-module LoadResourceRails
+module LoadResource
   module ApplicationHelper
   end
 end

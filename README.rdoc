@@ -1,20 +1,20 @@
-= LoadResourceRails {<img src="https://badge.fury.io/rb/load_resource_rails.png" alt="Gem Version" />}[http://badge.fury.io/rb/load_resource_rails]
+= LoadResource {<img src="https://badge.fury.io/rb/load_resource.png" alt="Gem Version" />}[http://badge.fury.io/rb/load_resource]
 
-Wiki[https://github.com/yakko/load_resource_rails/wiki] | RubyGems[https://rubygems.org/gems/load_resource_rails]
+Wiki[https://github.com/yakko/load_resource/wiki] | RubyGems[https://rubygems.org/gems/load_resource]
 
-LoadResourceRails an elegant way of loading resorces in your restful controllers.
+LoadResource an elegant way of loading resorces in your restful controllers.
 
 == Installation
 
 In <b>Rails 3</b> and <b>Rails 4</b>, add this to your Gemfile and run the +bundle+ command.
 
-  gem "load_resource_rails"
+  gem "load_resource"
 
   bundle
 
-Then run the install generator
+Run this command to make all your new generated scaffold controllers come with a load_resource call by default
 
-  rails g load_resource_rails:install
+  rails g load_resource:install
 
 == Instructions
 

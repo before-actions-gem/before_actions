@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class LoadResourceRailsTest < ActiveSupport::TestCase
+class LoadResourceTest < ActiveSupport::TestCase
   test "truth" do
-    assert_kind_of Module, LoadResourceRails
+    assert_kind_of Module, LoadResource
   end
 end

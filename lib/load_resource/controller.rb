@@ -1,4 +1,4 @@
-module LoadResourceRails
+module LoadResource
   module Controller
     
     def load_resource(&block)
@@ -10,6 +10,6 @@ end
 
 if defined? ActionController::Base
   ActionController::Base.class_eval do
-    include LoadResourceRails::Controller
+    include LoadResource::Controller
   end
 end

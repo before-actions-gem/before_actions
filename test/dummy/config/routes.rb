@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount LoadResourceRails::Engine => "/load_resource_rails"
+  mount LoadResource::Engine => "/load_resource"
 end

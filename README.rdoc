@@ -20,6 +20,8 @@ Run this command to make all your new generated scaffold controllers come with a
 
 == 1. Using the command
 
+{<img src="readme_images/method.png" alt="image" />}[https://github.com/yakko/load_resource]
+
   class CleanersController < ApplicationController
     before_action :define_cleaner
 
@@ -42,51 +44,7 @@ Run this command to make all your new generated scaffold controllers come with a
 
 == 2. Enjoy your clean controller
 
-  class CleanersController < ApplicationController
-    before_action :define_cleaner
-
-    # GET /cleaners
-    def index
-    end
-
-    # GET /cleaners/1
-    def show
-    end
-
-    # GET /cleaners/new
-    def new
-      
-    end
-
-    # GET /cleaners/1/edit
-    def edit
-    end
-
-    # POST /cleaners
-    def create
-      if @cleaner.save
-        redirect_to @cleaner, notice: 'Cleaner was successfully created.'
-      else
-        render action: 'new'
-      end
-    end
-
-    # PATCH/PUT /cleaners/1
-    def update
-      if @cleaner.update(cleaner_params)
-        redirect_to @cleaner, notice: 'Cleaner was successfully updated.'
-      else
-        render action: 'edit'
-      end
-    end
-
-    # DELETE /cleaners/1
-    def destroy
-      @cleaner.destroy
-      redirect_to cleaners_url, notice: 'Cleaner was successfully destroyed.'
-    end
-
-  end
+{<img src="readme_images/clean_controller.png" alt="image" />}[https://github.com/yakko/load_resource]
 
 
 == 3. Nested Routes
@@ -95,27 +53,12 @@ Given that
 
 Company has_many :clears
 
-  class CleanersController < ApplicationController
-    before_action :define_cleaner
-
-    private
-      # Use callbacks to share common setup or constraints between actions.
-      def define_cleaner
-
-        load_resource do
-          before                                      { @company = Company.find(params[:company_id]) }
-          for_action(:index)                          { @cleaners = @company.cleaners                }
-          for_action(:new)                            { @cleaner  = @company.cleaners.build                }
-          for_action(:create)                         { @cleaner  = @company.cleaners.build(cleaner_params) }
-          for_action(:show, :edit, :update, :destroy) { @cleaner  = @company.cleaners.find(params[:id])  }
-        end
-        
-      end
-
-  end
+{<img src="readme_images/nested.png" alt="image" />}[https://github.com/yakko/load_resource]
 
 
 == 4. Authorization
+
+{<img src="readme_images/authorization.png" alt="image" />}[https://github.com/yakko/load_resource]
 
   class CleanersController < ApplicationController
     before_action :define_cleaner

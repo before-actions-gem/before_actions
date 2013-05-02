@@ -5,17 +5,14 @@ module LoadResource
       @controller = controller
     end
 
-    def before(&block)
-      @controller.instance_eval(&block)
-    end
-    alias :after :before
-
     def for_action(*actions, &block)
-      if actions.map(&:to_s).include?(@controller.action_name)
+      if actions.empty? || actions.map(&:to_s).include?(@controller.action_name)
         @controller.instance_eval(&block)
       end
     end
     alias :for_actions :for_action
+    alias :before :for_action
+    alias :after :for_action
 
   end
 end

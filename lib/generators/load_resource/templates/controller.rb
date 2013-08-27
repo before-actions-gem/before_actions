@@ -4,7 +4,16 @@ require_dependency "<%= namespaced_file_path %>/application_controller"
 <% end -%>
 <% module_namespacing do -%>
 class <%= controller_class_name %>Controller < ApplicationController
-  before_action :define_<%= singular_table_name %>
+
+  # Use callbacks to share common setup or constraints between actions.
+  load_resource do
+    before                                      {  } # load your nested resource's parent here if you need one
+    for_action(:index)                          { @<%= plural_table_name %> = <%= orm_class.all(class_name) %>                }
+    for_action(:new)                            { @<%= singular_table_name %>  = <%= orm_class.build(class_name) %>                }
+    for_action(:create)                         { @<%= singular_table_name %>  = <%= orm_class.build(class_name, "#{singular_table_name}_params") %> }
+    for_action(:show, :edit, :update, :destroy) { @<%= singular_table_name %>  = <%= orm_class.find(class_name, "params[:id]") %>  }
+    after                                       {  } # run your authorization logic here if you need one
+  end
 
   # GET <%= route_url %>
   def index
@@ -47,19 +56,6 @@ class <%= controller_class_name %>Controller < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def define_<%= singular_table_name %>
-
-      load_resource do
-        before                                      { # load your nested resource's parent here if you need one }
-        for_action(:index)                          { @<%= plural_table_name %> = <%= orm_class.all(class_name) %>                }
-        for_action(:new)                            { @<%= singular_table_name %>  = <%= orm_class.build(class_name) %>                }
-        for_action(:create)                         { @<%= singular_table_name %>  = <%= orm_class.build(class_name, "#{singular_table_name}_params") %> }
-        for_action(:show, :edit, :update, :destroy) { @<%= singular_table_name %>  = <%= orm_class.find(class_name, "params[:id]") %>  }
-        after                                       { # run your authorization logic here if you need one }
-      end
-      
-    end
 
     # Only allow a trusted parameter "white list" through.
     def <%= "#{singular_table_name}_params" %>

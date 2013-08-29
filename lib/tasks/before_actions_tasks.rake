@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :load_resource do
+# task :before_actions do
 #   # Task goes here
 # end

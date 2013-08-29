@@ -6,13 +6,13 @@ require_dependency "<%= namespaced_file_path %>/application_controller"
 class <%= controller_class_name %>Controller < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
-  load_resource do
-    before                                      {  } # load your nested resource's parent here if you need one
-    for_action(:index)                          { @<%= plural_table_name %> = <%= orm_class.all(class_name) %>                }
-    for_action(:new)                            { @<%= singular_table_name %>  = <%= orm_class.build(class_name) %>                }
-    for_action(:create)                         { @<%= singular_table_name %>  = <%= orm_class.build(class_name, "#{singular_table_name}_params") %> }
-    for_action(:show, :edit, :update, :destroy) { @<%= singular_table_name %>  = <%= orm_class.find(class_name, "params[:id]") %>  }
-    after                                       {  } # run your authorization logic here if you need one
+  before_actions do
+    actions                                  {  } # load your nested resource's parent here if you need one
+    actions(:index)                          { @<%= plural_table_name %> = <%= orm_class.all(class_name) %>                }
+    actions(:new)                            { @<%= singular_table_name %>  = <%= orm_class.build(class_name) %>                }
+    actions(:create)                         { @<%= singular_table_name %>  = <%= orm_class.build(class_name, "#{singular_table_name}_params") %> }
+    actions(:show, :edit, :update, :destroy) { @<%= singular_table_name %>  = <%= orm_class.find(class_name, "params[:id]") %>  }
+    actions                                  {  } # run your authorization logic here if you need one
   end
 
   # GET <%= route_url %>

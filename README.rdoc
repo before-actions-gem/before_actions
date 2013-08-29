@@ -1,26 +1,26 @@
-= LoadResource {<img src="https://badge.fury.io/rb/load_resource.png" alt="Gem Version" />}[http://badge.fury.io/rb/load_resource]
+= BeforeActions {<img src="https://badge.fury.io/rb/before_actions.png" alt="Gem Version" />}[http://badge.fury.io/rb/before_actions]
 
-Wiki[https://github.com/yakko/load_resource/wiki] | RubyGems[https://rubygems.org/gems/load_resource]
+Wiki[https://github.com/yakko/before_actions/wiki] | RubyGems[https://rubygems.org/gems/before_actions]
 
-LoadResource an elegant way of loading resorces in your restful controllers.
+BeforeActions an elegant way of loading resorces in your restful controllers.
 
 == Installation
 
 In <b>Rails 3</b> and <b>Rails 4</b>, add this to your Gemfile and run the +bundle+ command.
 
-  gem "load_resource"
+  gem "before_actions"
 
   bundle
 
-Run this command to make all your new generated scaffold controllers come with a load_resource call by default
+Run this command to make all your new generated scaffold controllers come with a before_actions call by default
 
-  rails g load_resource:install
+  rails g before_actions:install
 
 == Instructions
 
 == 1. Using the command
 
-{<img src="readme_images/method.png" alt="image" />}[https://github.com/yakko/load_resource]
+{<img src="readme_images/method.png" alt="image" />}[https://github.com/yakko/before_actions]
 
   class CleanersController < ApplicationController
     before_action :define_cleaner
@@ -29,13 +29,13 @@ Run this command to make all your new generated scaffold controllers come with a
       # Use callbacks to share common setup or constraints between actions.
       def define_cleaner
 
-        load_resource do
-          before                                      { # load your nested resource's parent here if you need one }
-          for_action(:index)                          { @cleaners = Cleaner.all                }
-          for_action(:new)                            { @cleaner  = Cleaner.new                }
-          for_action(:create)                         { @cleaner  = Cleaner.new(cleaner_params) }
-          for_action(:show, :edit, :update, :destroy) { @cleaner  = Cleaner.find(params[:id])  }
-          after                                       { # run your authorization logic here if you need one }
+        before_actions do
+          actions                                  { # load your nested resource's parent here if you need one }
+          actions(:index)                          { @cleaners = Cleaner.all                }
+          actions(:new)                            { @cleaner  = Cleaner.new                }
+          actions(:create)                         { @cleaner  = Cleaner.new(cleaner_params) }
+          actions(:show, :edit, :update, :destroy) { @cleaner  = Cleaner.find(params[:id])  }
+          actions                                  { # run your authorization logic here if you need one }
         end
         
       end
@@ -44,7 +44,7 @@ Run this command to make all your new generated scaffold controllers come with a
 
 == 2. Enjoy your clean controller
 
-{<img src="readme_images/clean_controller.png" alt="image" />}[https://github.com/yakko/load_resource]
+{<img src="readme_images/clean_controller.png" alt="image" />}[https://github.com/yakko/before_actions]
 
 
 == 3. Nested Routes
@@ -53,12 +53,12 @@ Given that
 
 Company has_many :clears
 
-{<img src="readme_images/nested.png" alt="image" />}[https://github.com/yakko/load_resource]
+{<img src="readme_images/nested.png" alt="image" />}[https://github.com/yakko/before_actions]
 
 
 == 4. Authorization made easy
 
-{<img src="readme_images/authorization.png" alt="image" />}[https://github.com/yakko/load_resource]
+{<img src="readme_images/authorization.png" alt="image" />}[https://github.com/yakko/before_actions]
 
   class CleanersController < ApplicationController
     before_action :define_cleaner
@@ -67,13 +67,13 @@ Company has_many :clears
       # Use callbacks to share common setup or constraints between actions.
       def define_cleaner
 
-        load_resource do
-          before                                      { @company = Company.find(params[:company_id]) }
-          for_action(:index)                          { ... }
-          for_action(:new)                            { ... }
-          for_action(:create)                         { ... }
-          for_action(:show, :edit, :update, :destroy) { @cleaner  = @company.cleaners.find(params[:id])  }
-          after do
+        before_actions do
+          actions                                  { @company = Company.find(params[:company_id]) }
+          actions(:index)                          { ... }
+          actions(:new)                            { ... }
+          actions(:create)                         { ... }
+          actions(:show, :edit, :update, :destroy) { @cleaner  = @company.cleaners.find(params[:id])  }
+          actions do
             if @company.manager == current_user
               flash[:alert] = "You need to be the manager for #{@company.name} to access this area."
               redirect_to root_path

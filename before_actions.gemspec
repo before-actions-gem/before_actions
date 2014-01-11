@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.name        = "before_actions"
   s.version     = BeforeActions::VERSION
   s.authors     = ["James Pinto"]
-  s.email       = ["james@rubyfactory.net"]
+  s.email       = ["tjamespinto@gmail.com"]
   s.homepage    = "https://github.com/yakko/before_actions"
-  s.summary     = "Simplified solution for restful resources in Rails."
-  s.description = "Loading all your resources before the action not only makes your code cleaner, but also makes authorization and nested routes easier."
+  s.summary     = "Call all your before_action filters at once."
+  s.description = "Load your resources at the same place and make your controllers cleaner."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]

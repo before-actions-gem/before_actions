@@ -58,5 +58,6 @@ In <b>Rails 3</b> and <b>Rails 4</b>, add this to your Gemfile and run the +bund
 
 
 
+== License
 
-This project rocks and uses MIT-LICENSE.
+Before Actions is released under the {MIT License}[http://www.opensource.org/licenses/MIT].

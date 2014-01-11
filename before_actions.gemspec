@@ -13,7 +13,9 @@ Gem::Specification.new do |s|
   s.summary     = "Call all your before_action filters at once."
   s.description = "Load your resources at the same place and make your controllers cleaner."
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.license = 'MIT'
+
+  s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
   # s.add_dependency "rails", "~> 4.0.0.beta1"

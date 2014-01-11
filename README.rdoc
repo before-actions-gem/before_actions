@@ -12,78 +12,49 @@ In <b>Rails 3</b> and <b>Rails 4</b>, add this to your Gemfile and run the +bund
 
   bundle
 
-Run this command to make all your new generated scaffold controllers come with a before_actions call by default
-
-  rails g before_actions:install
-
 == Instructions
 
 == 1. Using the command
 
-{<img src="readme_images/method.png" alt="image" />}[https://github.com/yakko/before_actions]
+  class ContactsController < ApplicationController
 
-  class CleanersController < ApplicationController
-    before_action :define_cleaner
+    # load and authorize resources
+    before_actions do
+      # all actions
+      # actions {  }
 
-    private
-      # Use callbacks to share common setup or constraints between actions.
-      def define_cleaner
+      # list actions
+      actions(:index) { @contacts = Contact.all }
 
-        before_actions do
-          actions                                  { # load your nested resource's parent here if you need one }
-          actions(:index)                          { @cleaners = Cleaner.all                }
-          actions(:new)                            { @cleaner  = Cleaner.new                }
-          actions(:create)                         { @cleaner  = Cleaner.new(cleaner_params) }
-          actions(:show, :edit, :update, :destroy) { @cleaner  = Cleaner.find(params[:id])  }
-          actions                                  { # run your authorization logic here if you need one }
-        end
-        
+      # building actions
+      actions(:new, :create) { @contact = Contact.new(contact_params) }
+
+      # member actions, will raise a 404 if the model is not found
+      actions(:show, :edit, :update, :destroy) { @contact = Contact.find(params[:id]) }
+
+      # all actions
+      # actions {  }
+    end
+
+    def contact_params
+      if params[:contact]
+        params.require(:contact).permit(:name)
+      else
+        {}
       end
+    end
 
-  end
 
 == 2. Enjoy your clean controller
 
-{<img src="readme_images/clean_controller.png" alt="image" />}[https://github.com/yakko/before_actions]
+{contacts_controller.rb}[https://github.com/yakko/before_actions/blob/master/readme/contacts_controller.rb]
+
+{<img src="readme_images/controller.jpg" alt="image" />}[https://github.com/yakko/before_actions]
 
 
 == 3. Nested Routes
 
-Given that
-
-Company has_many :clears
-
 {<img src="readme_images/nested.png" alt="image" />}[https://github.com/yakko/before_actions]
-
-
-== 4. Authorization made easy
-
-{<img src="readme_images/authorization.png" alt="image" />}[https://github.com/yakko/before_actions]
-
-  class CleanersController < ApplicationController
-    before_action :define_cleaner
-
-    private
-      # Use callbacks to share common setup or constraints between actions.
-      def define_cleaner
-
-        before_actions do
-          actions                                  { @company = Company.find(params[:company_id]) }
-          actions(:index)                          { ... }
-          actions(:new)                            { ... }
-          actions(:create)                         { ... }
-          actions(:show, :edit, :update, :destroy) { @cleaner  = @company.cleaners.find(params[:id])  }
-          actions do
-            if @company.manager == current_user
-              flash[:alert] = "You need to be the manager for #{@company.name} to access this area."
-              redirect_to root_path
-            end
-          end
-        end
-        
-      end
-
-  end
 
 
 

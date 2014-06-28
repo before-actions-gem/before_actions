@@ -1,4 +1,4 @@
-= BeforeActions {<img src="https://badge.fury.io/rb/before_actions.png" alt="Gem Version" />}[http://badge.fury.io/rb/before_actions] {<img src="http://inch-pages.github.io/github/yakko/before_actions.png" alt="Inline docs" />}[http://inch-pages.github.io/github/yakko/before_actions] {<img src="https://gemnasium.com/yakko/before_actions.svg" alt="Dependency Status" />}[https://gemnasium.com/yakko/before_actions]
+= BeforeActions {<img src="https://badge.fury.io/rb/before_actions.png" alt="Gem Version" />}[http://badge.fury.io/rb/before_actions] {<img src="http://inch-ci.org/github/yakko/before_actions.png" alt="Inline docs" />}[http://inch-ci.org/github/yakko/before_actions] {<img src="https://gemnasium.com/yakko/before_actions.svg" alt="Dependency Status" />}[https://gemnasium.com/yakko/before_actions]
 
 Wiki[https://github.com/yakko/before_actions/wiki] | RubyGems[https://rubygems.org/gems/before_actions]
 

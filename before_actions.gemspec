@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = BeforeActions::VERSION
   s.authors     = ["James Pinto"]
   s.email       = ["tjamespinto@gmail.com"]
-  s.homepage    = "https://github.com/yakko/before_actions"
-  s.summary     = "Call all your before_action filters at once."
-  s.description = "Load your resources at the same place and make your controllers cleaner."
+  s.homepage    = "https://github.com/before-actions-gem/before_actions"
+  s.summary     = "Rails Gem to organize your controllres"
+  s.description = "Organize your controllers by grouping your before and after filters."
 
   s.license = 'MIT'
 

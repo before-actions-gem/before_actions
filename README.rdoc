@@ -1,6 +1,6 @@
 = BeforeActions {<img src="https://badge.fury.io/rb/before_actions.png" alt="Gem Version" />}[http://badge.fury.io/rb/before_actions]
 
-Wiki[https://github.com/yakko/before_actions/wiki] | RubyGems[https://rubygems.org/gems/before_actions]
+Wiki[https://github.com/before-actions-gem/before_actions/wiki] | RubyGems[https://rubygems.org/gems/before_actions]
 
 BeforeActions an elegant way of loading resorces in your restful controllers.
 
@@ -47,14 +47,14 @@ In <b>Rails 3</b> and <b>Rails 4</b>, add this to your Gemfile and run the +bund
 
 == 2. Enjoy your clean controller
 
-{contacts_controller.rb}[https://github.com/yakko/before_actions/blob/master/readme/contacts_controller.rb]
+{contacts_controller.rb}[https://github.com/before-actions-gem/before_actions/blob/master/readme/contacts_controller.rb]
 
-{<img src="readme_images/controller.jpg" alt="image" />}[https://github.com/yakko/before_actions]
+{<img src="readme_images/controller.jpg" alt="image" />}[https://github.com/before-actions-gem/before_actions]
 
 
 == 3. Nested Routes
 
-{<img src="readme_images/nested.png" alt="image" />}[https://github.com/yakko/before_actions]
+{<img src="readme_images/nested.png" alt="image" />}[https://github.com/before-actions-gem/before_actions]
 
 
 

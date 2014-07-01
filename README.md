@@ -41,28 +41,6 @@ rails g before_actions:install
 
 
 
-
-## Contributing
-
-1. Fork it ( https://github.com/github.com/before-actions-gem/before_actions/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
-
-## Versioning
-
-__Before Actions__ uses [Semantic Versioning 2.0.0](http://semver.org)
-
-## Copyright
-
-Copyright 2013-2014 James Pinto – Released under [MIT License](http://www.opensource.org/licenses/MIT)
-
-
-
-
-
-
 ## Demo
 
 Check this gem in use: [app/controllers/contacts_controller.rb](https://github.com/before-actions-gem/before_actions/blob/master/readme_images/contacts_controller.rb)
@@ -107,3 +85,22 @@ end
 
 
 
+
+
+
+
+## Contributing
+
+1. Fork it ( https://github.com/github.com/before-actions-gem/before_actions/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
+
+## Versioning
+
+__Before Actions__ uses [Semantic Versioning 2.0.0](http://semver.org)
+
+## Copyright
+
+Copyright 2013-2014 James Pinto – Released under [MIT License](http://www.opensource.org/licenses/MIT)

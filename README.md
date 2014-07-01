@@ -14,6 +14,7 @@ Organize your controllers by grouping your before and after filters.
 * Home page: https://github.com/before-actions-gem/before_actions
 * API Doc: http://rdoc.info/gems/before_actions
 * Version: https://rubygems.org/gems/before_actions
+* Trello Board: https://trello.com/b/PMRfJAqq/before-actions-gem
 
 ## Support
 

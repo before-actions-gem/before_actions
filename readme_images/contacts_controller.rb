@@ -9,7 +9,8 @@ class ContactsController < ApplicationController
     actions(:index) { @contacts = Contact.all }
 
     # building actions
-    actions(:new, :create) { @contact = Contact.new(contact_params) }
+    actions(:new)    { @contact = Contact.new }
+    actions(:create) { @contact = Contact.new(contact_params) }
 
     # member actions, will raise a 404 if the model is not found
     actions(:show, :edit, :update, :destroy) { @contact = Contact.find(params[:id]) }
@@ -28,7 +29,8 @@ class ContactsController < ApplicationController
   #   actions(:index) { @contacts = @company.contacts }
 
   #   # building actions
-  #   actions(:new, :create) { @contact = @company.contacts.build(contact_params) }
+  #   actions(:new)    { @contact = @company.contacts.build }
+  #   actions(:create) { @contact = @company.contacts.build(contact_params) }
 
   #   # member actions, will raise a 404 if the model is not found
   #   actions(:show, :edit, :update, :destroy) { @contact = @company.contacts.find(params[:id]) }
@@ -47,17 +49,19 @@ class ContactsController < ApplicationController
   end
 
 
-  # GET /contacts/1
-  def show
-  end
 
   # GET /contacts/new
   def new
   end
 
+  # GET /contacts/1
+  def show
+  end
+
   # GET /contacts/1/edit
   def edit
   end
+
 
 
   # POST /contacts
@@ -95,11 +99,7 @@ class ContactsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def contact_params
-      if params[:contact]
-        params.require(:contact).permit(:name)
-      else
-        {}
-      end
+      params.require(:contact).permit(:name)
     end
 end
 

@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ["James Pinto"]
   s.email       = ["tjamespinto@gmail.com"]
   s.homepage    = "https://github.com/before-actions-gem/before_actions"
-  s.summary     = "Rails Gem to organize your controllres"
+  s.summary     = "Rails Gem to organize your controllers"
   s.description = "Organize your controllers by grouping your before and after filters."
 
   s.license = 'MIT'

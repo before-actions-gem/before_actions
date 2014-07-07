@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email       = ["tjamespinto@gmail.com"]
   spec.homepage    = "https://github.com/before-actions-gem/before_actions"
   spec.summary     = "Rails Gem to organize your controllers"
-  spec.description = "Organize your controllers by grouping your before and after filterspec."
+  spec.description = "Organize your controllers by grouping your before and after filter."
 
   spec.license = 'MIT'
 

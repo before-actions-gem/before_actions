@@ -12,3 +12,6 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+
+# test
+gem "codeclimate-test-reporter", group: :test, require: nil

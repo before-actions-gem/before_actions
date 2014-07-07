@@ -4,22 +4,25 @@ $:.push File.expand_path("../lib", __FILE__)
 require "before_actions/version"
 
 # Describe your gem and declare its dependencies:
-Gem::Specification.new do |s|
-  s.name        = "before_actions"
-  s.version     = BeforeActions::VERSION
-  s.authors     = ["James Pinto"]
-  s.email       = ["tjamespinto@gmail.com"]
-  s.homepage    = "https://github.com/before-actions-gem/before_actions"
-  s.summary     = "Rails Gem to organize your controllers"
-  s.description = "Organize your controllers by grouping your before and after filters."
+Gem::Specification.new do |spec|
+  spec.name        = "before_actions"
+  spec.version     = BeforeActions::VERSION
+  spec.authors     = ["James Pinto"]
+  spec.email       = ["tjamespinto@gmail.com"]
+  spec.homepage    = "https://github.com/before-actions-gem/before_actions"
+  spec.summary     = "Rails Gem to organize your controllers"
+  spec.description = "Organize your controllers by grouping your before and after filterspec."
 
-  s.license = 'MIT'
+  spec.license = 'MIT'
 
-  s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
-  s.test_files = Dir["test/**/*"]
+  spec.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
+  spec.test_files = Dir["test/**/*"]
 
-  # s.add_dependency "rails", "~> 4.0.0.beta1"
-  # s.add_dependency "jquery-rails"
+  spec.add_dependency "rails", "> 3.1" # any major version too
+  # spec.add_dependency "jquery-rails"
 
-  s.add_development_dependency "sqlite3"
+  spec.add_development_dependency "sqlite3"
+
+  spec.add_development_dependency "bundler", "~> 1.3" # limited to 1.* major version
+  # spec.add_development_dependency "rake"
 end

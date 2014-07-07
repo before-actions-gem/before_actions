@@ -7,6 +7,8 @@ Organize your controllers by grouping your before and after filters.
 [![Gem Version](https://badge.fury.io/rb/before_actions.png)](http://badge.fury.io/rb/before_actions)
 [![Dependency Status](https://gemnasium.com/before-actions-gem/before_actions.svg)](https://gemnasium.com/before-actions-gem/before_actions)
 [![Inline docs](http://inch-ci.org/github/before-actions-gem/before_actions.png)](http://inch-ci.org/github/before-actions-gem/before_actions)
+[![Code Climate](https://codeclimate.com/github/before-actions-gem/before_actions.png)](https://codeclimate.com/github/before-actions-gem/before_actions)
+[![Code Climate](https://codeclimate.com/github/before-actions-gem/before_actions/coverage.png)](https://codeclimate.com/github/before-actions-gem/before_actions)
 
 
 ## References

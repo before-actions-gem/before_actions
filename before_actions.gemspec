@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
   spec.test_files = Dir["test/**/*"]
 
-  spec.add_dependency 'rails', '>= 3.1.0', '< 5.0'
-  # spec.add_dependency "jquery-rails"
+  spec.add_runtime_dependency 'rails', ['>= 3.1', '< 5.0']
+  # spec.add_runtime_dependency "jquery-rails"
 
   spec.add_development_dependency "sqlite3"
 

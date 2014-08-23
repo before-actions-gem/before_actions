@@ -9,6 +9,7 @@ Organize your controllers by grouping your before and after filters.
 [![Inline docs](http://inch-ci.org/github/before-actions-gem/before_actions.png)](http://inch-ci.org/github/before-actions-gem/before_actions)
 [![Code Climate](https://codeclimate.com/github/before-actions-gem/before_actions.png)](https://codeclimate.com/github/before-actions-gem/before_actions)
 [![Code Climate](https://codeclimate.com/github/before-actions-gem/before_actions/coverage.png)](https://codeclimate.com/github/before-actions-gem/before_actions)
+[![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/before-actions-gem/before_actions/blob/master/LICENSE.md)
 
 
 ## References
@@ -103,7 +104,3 @@ end
 ## Versioning
 
 __Before Actions__ uses [Semantic Versioning 2.0.0](http://semver.org)
-
-## Copyright
-
-Copyright 2013-2014 James Pinto – Released under [MIT License](http://www.opensource.org/licenses/MIT)

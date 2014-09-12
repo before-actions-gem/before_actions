@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
   spec.name        = "before_actions"
   spec.version     = BeforeActions::VERSION
   spec.authors     = ["James Pinto"]
-  spec.email       = ["tjamespinto@gmail.com"]
+  spec.email       = ["thejamespinto@gmail.com"]
   spec.homepage    = "https://github.com/before-actions-gem/before_actions"
-  spec.summary     = "Rails Gem to organize your controllers"
-  spec.description = "Organize your controllers by grouping your before and after filter."
+  spec.summary     = "Organize Your Rails Controllers"
+  spec.description = "Organize your code by grouping your controller callbacks."
 
   spec.license = 'MIT'
 

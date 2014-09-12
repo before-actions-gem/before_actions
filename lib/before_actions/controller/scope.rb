@@ -16,7 +16,7 @@ module BeforeActions
       end
 
       def except(*list, &block)
-        @controller.send(@the_method, {only: list}, &block)
+        @controller.send(@the_method, {except: list}, &block)
       end
 
     end

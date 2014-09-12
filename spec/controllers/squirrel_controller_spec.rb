@@ -6,7 +6,7 @@ RSpec.describe SquirrelController, :type => :controller do
     it "returns http success" do
       get :one
       expect(response).to have_http_status(:success)
-      expect(assigns(:squirrel)).to eq("except before one")
+      expect(assigns(:squirrel)).to eq("one")
     end
   end
 
@@ -14,7 +14,7 @@ RSpec.describe SquirrelController, :type => :controller do
     it "returns http success" do
       get :two
       expect(response).to have_http_status(:success)
-      expect(assigns(:squirrel)).to eq("two")
+      expect(assigns(:squirrel)).to eq("except before one")
     end
   end
 
@@ -22,7 +22,7 @@ RSpec.describe SquirrelController, :type => :controller do
     it "returns http success" do
       get :three
       expect(response).to have_http_status(:success)
-      expect(assigns(:squirrel)).to eq("three")
+      expect(assigns(:squirrel)).to eq("except before one")
     end
   end
 

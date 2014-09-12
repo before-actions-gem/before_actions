@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   # test
   spec.test_files = Dir["spec/**/*"]
-  spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "sqlite3"
   spec.add_development_dependency 'rspec-rails'
 end

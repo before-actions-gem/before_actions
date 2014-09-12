@@ -10,7 +10,7 @@ module BeforeActions
         Scope.new(self, 'after_action').instance_eval(&block)
       end
       def around_actions(&block)
-        raise NotImplementedError
+        Scope.new(self, 'around_action').instance_eval(&block)
       end
     end
 

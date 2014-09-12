@@ -3,36 +3,45 @@ module BeforeActions
     extend ActiveSupport::Concern
 
     module ClassMethods
-      attr_reader :before_actions_block, :after_actions_block
       def before_actions(&block)
-        @before_actions_block = block
-        before_filter :execute_before_actions
+        TheBefore.new(self).instance_eval(&block)
       end
       def after_actions(&block)
-        @after_actions_block = block
-        after_filter :execute_after_actions
+        TheAfter.new(self).instance_eval(&block)
       end
     end
 
-    def execute_before_actions
-      block = self.class.before_actions_block
-      _execute_command(&block)
+    class TheBefore
+
+      def initialize(controller)
+        @controller = controller
+      end
+
+      def actions(*list, &block)
+        if list.empty?
+          @controller.before_action(&block)
+        else
+          @controller.before_action({only: list}, &block)
+        end
+      end
+
     end
 
-    def execute_after_actions
-      block = self.class.after_actions_block
-      _execute_command(&block)
+    class TheAfter
+
+      def initialize(controller)
+        @controller = controller
+      end
+
+      def actions(*list, &block)
+        if list.empty?
+          @controller.after_action(&block)
+        else
+          @controller.after_action({only: list}, &block)
+        end
+      end
+
     end
 
-    def _execute_command(&block)
-      Command.new(self).instance_eval(&block)
-    end
-
-  end
-end
-
-if defined? ActionController::Base
-  ActionController::Base.class_eval do
-    include BeforeActions::Controller
   end
 end

@@ -38,37 +38,52 @@ And then execute:
 
 ```bash
 bundle
-rails g before_actions:install
+rails g before_actions:template
 ```
 
 
+## Upgrading from 1.*
 
+```bash
+bundle update before_actions
+rails g before_actions:template
+```
+
+Then simply adjust your controllers to the new syntax
 
 
 ## Demo
 
-Check this gem in use: [app/controllers/contacts_controller.rb](https://github.com/before-actions-gem/before_actions/blob/master/readme_images/contacts_controller.rb)
+It's simple!
 
 ```ruby
 class ContactsController < ApplicationController
 
   # load and authorize resources
   before_actions do
-    # all actions
-    # actions {  }
-
-    # list actions
-    actions(:index) { @contacts = Contact.all }
+    # listing actions
+    only(:index) { @contacts = Contact.all }
 
     # building actions
-    actions(:new)    { @contact = Contact.new }
-    actions(:create) { @contact = Contact.new(contact_params) }
+    only(:new)    { @contact = Contact.new }
+    only(:create) { @contact = Contact.new(contact_params) }
 
     # member actions, will raise a 404 if the model is not found
-    actions(:show, :edit, :update, :destroy) { @contact = Contact.find(params[:id]) }
+    only(:show, :edit, :update, :destroy) { @contact = Contact.find(params[:id]) }
+  end
 
-    # all actions
-    # actions {  }
+  after_actions do
+    all { your_code_here }
+    except(:index) { your_code_here }
+  end
+
+
+  around_actions do
+    only(:create) do |controller, action|
+      your_code
+      action.call
+      in_here
+    end
   end
 
   ...
@@ -79,11 +94,11 @@ class ContactsController < ApplicationController
 end
 ```
 
-#### Demo Resource
+#### Restful Controller
 
-<img src="readme_images/controller.jpg" alt="controller.jpg" />
+<img src="readme_images/resource.png" alt="resource.png" />
 
-#### Demo Nested Resource
+#### Nested Resourceful Controller
 
 <img src="readme_images/nested.png" alt="nested.png" />
 

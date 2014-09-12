@@ -1,11 +1,11 @@
 class BunnyController < ApplicationController
 
   before_actions do
-    actions { @bunny = action_name }
+    all { @bunny = action_name }
   end
 
   around_actions do
-    actions(:two) do |controller, action|
+    only(:two) do |controller, action|
       @bunny += "-around two-"
       action.call
       @bunny += "-around two-"

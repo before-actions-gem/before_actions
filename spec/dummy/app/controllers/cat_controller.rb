@@ -1,11 +1,11 @@
 class CatController < ApplicationController
 
   before_actions do
-    actions { @cat = action_name }
+    all { @cat = action_name }
   end
 
   after_actions do
-    actions(:two) { @cat = "after two" }
+    only(:two) { @cat = "after two" }
   end
 
   def one

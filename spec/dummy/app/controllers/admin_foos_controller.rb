@@ -2,11 +2,11 @@ class AdminFoosController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   before_actions do
-    actions(:new, :create, :edit, :update, :destroy) { render_not_authorized }
-    actions(:index)                          { @admin_foos = AdminFoo.all               }
-    actions(:new)                            { raise_it      }
-    actions(:create)                         { raise_it      }
-    actions(:show, :edit, :update, :destroy) { @admin_foo  = AdminFoo.find(params[:id]) }
+    only(:new, :create, :edit, :update, :destroy) { render_not_authorized }
+    only(:index)                          { @admin_foos = AdminFoo.all               }
+    only(:new)                            { raise_it      }
+    only(:create)                         { raise_it      }
+    only(:show, :edit, :update, :destroy) { @admin_foo  = AdminFoo.find(params[:id]) }
   end
 
   def index

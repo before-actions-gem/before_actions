@@ -7,12 +7,16 @@ module BeforeActions
         @the_method = the_method
       end
 
-      def actions(*list, &block)
-        if list.empty?
-          @controller.send(@the_method, &block)
-        else
-          @controller.send(@the_method, {only: list}, &block)
-        end
+      def all(&block)
+        @controller.send(@the_method, &block)
+      end
+
+      def only(*list, &block)
+        @controller.send(@the_method, {only: list}, &block)
+      end
+
+      def except(*list, &block)
+        @controller.send(@the_method, {only: list}, &block)
       end
 
     end

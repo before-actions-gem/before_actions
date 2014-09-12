@@ -2,12 +2,12 @@ class FoosController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   before_actions do
-    actions                                  {  } # load your nested resource's parent here if you need one
-    actions(:index)                          { @foos = Foo.all                }
-    actions(:new)                            { @foo  = Foo.new                }
-    actions(:create)                         { @foo  = Foo.new(foo_params)    }
-    actions(:show, :edit, :update, :destroy) { @foo  = Foo.find(params[:id])  }
-    actions                                  {  } # run your authorization logic here if you need one
+    # all                                   {  } # load your nested resource's parent here if you need one
+    only(:index)                          { @foos = Foo.all                }
+    only(:new)                            { @foo  = Foo.new                }
+    only(:create)                         { @foo  = Foo.new(foo_params)    }
+    only(:show, :edit, :update, :destroy) { @foo  = Foo.find(params[:id])  }
+    # all                                   {  } # run your authorization logic here if you need one
   end
 
   # GET /foos

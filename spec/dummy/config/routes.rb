@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'squirrel/one'
+
+  get 'squirrel/two'
+
+  get 'squirrel/three'
+
   get 'bunny/one'
   get 'bunny/two'
   get 'bunny/three'

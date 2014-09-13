@@ -1,29 +1,24 @@
 # Before Actions
 
-Organize your controllers by grouping your before and after filters.
-
-## Status
-
 [![Gem Version](https://badge.fury.io/rb/before_actions.png)](http://badge.fury.io/rb/before_actions)
 [![Dependency Status](https://gemnasium.com/before-actions-gem/before_actions.svg)](https://gemnasium.com/before-actions-gem/before_actions)
-[![Inline docs](http://inch-ci.org/github/before-actions-gem/before_actions.png)](http://inch-ci.org/github/before-actions-gem/before_actions)
 [![Code Climate](https://codeclimate.com/github/before-actions-gem/before_actions.png)](https://codeclimate.com/github/before-actions-gem/before_actions)
-[![Code Climate](https://codeclimate.com/github/before-actions-gem/before_actions/coverage.png)](https://codeclimate.com/github/before-actions-gem/before_actions)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/before-actions-gem/before_actions/blob/master/LICENSE.md)
 
 
-## References
+Organize your controllers by grouping your before and after filters.
 
-* Home page: https://github.com/before-actions-gem/before_actions
-* API Doc: http://rdoc.info/gems/before_actions
-* Version: https://rubygems.org/gems/before_actions
-* Trello Board: https://trello.com/b/PMRfJAqq/before-actions-gem
+#### Ruby
 
-## Support
+Our tests cases run with __1.9.3__, __2.0.0__ and __2.1.0__
 
-* Bugs/Issues: https://github.com/before-actions-gem/before_actions/issues
-* Support: http://stackoverflow.com/questions/tagged/before_actions
-* Support/Chat: [![Gitter chat](https://badges.gitter.im/before-actions-gem/before_actions.png)](https://gitter.im/before-actions-gem/before_actions)
+We encourage you to work with any __1.9+__ Ruby version
+
+#### Rails
+
+You can use this gem with Rails __3.1__, __3.2__ and __4+__
+
+
 
 
 ## Installation
@@ -38,11 +33,18 @@ And then execute:
 
 ```bash
 bundle
+```
+
+If you want your scaffold generated code to always look like this, just run:
+
+```bash
 rails g before_actions:template
 ```
 
+## Upgrading from v1.*
 
-## Upgrading from 1.*
+If you were already using this gem in your project and want to upgrade it, simply run:
+
 
 ```bash
 bundle update before_actions
@@ -54,7 +56,15 @@ Then simply adjust your controllers to the new syntax
 
 ## Demo
 
-It's simple!
+#### Restful
+
+<img src="readme_images/resource.png" alt="resource.png" />
+
+#### Nested
+
+<img src="readme_images/nested.png" alt="nested.png" />
+
+#### Sample Code
 
 ```ruby
 class ContactsController < ApplicationController
@@ -86,25 +96,17 @@ class ContactsController < ApplicationController
     end
   end
 
-  ...
-
-  def contact_params
-    params.require(:contact).permit(:name)
-  end
 end
 ```
 
-#### Restful Controller
-
-<img src="readme_images/resource.png" alt="resource.png" />
-
-#### Nested Resourceful Controller
-
-<img src="readme_images/nested.png" alt="nested.png" />
 
 
 
+## References
 
+* Home page: https://github.com/before-actions-gem/before_actions
+* Trello Board: https://trello.com/b/PMRfJAqq/before-actions-gem
+* Bugs/Issues: https://github.com/before-actions-gem/before_actions/issues
 
 
 

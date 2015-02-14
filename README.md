@@ -1,5 +1,6 @@
 # Before Actions
 
+[![Build Status](https://travis-ci.org/before-actions-gem/before_actions.svg?branch=master)](https://travis-ci.org/before-actions-gem/before_actions)
 [![Gem Version](https://badge.fury.io/rb/before_actions.png)](http://badge.fury.io/rb/before_actions)
 [![Dependency Status](https://gemnasium.com/before-actions-gem/before_actions.svg)](https://gemnasium.com/before-actions-gem/before_actions)
 [![Code Climate](https://codeclimate.com/github/before-actions-gem/before_actions.png)](https://codeclimate.com/github/before-actions-gem/before_actions)
@@ -7,6 +8,26 @@
 
 
 Organize your controllers by grouping your before and after filters.
+
+
+## Why use this gem?
+
+
+As developers, our teams are composed of a range of developers ....
+it's not always easy to put everybody in the same page
+
+phases:
+authentication - your auth gem will do this one
+
+
+pre-fetching-authorization
+fetching
+post-fetching-authorization
+
+
+actual logic - action block
+
+
 
 #### Ruby
 

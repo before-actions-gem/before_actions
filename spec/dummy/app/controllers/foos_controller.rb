@@ -58,7 +58,7 @@ class FoosController < ApplicationController
   # PATCH/PUT /foos/1.json
   def update
     respond_to do |format|
-      if @foo.update(foo_params)
+      if foo_update
         format.html { redirect_to @foo, notice: 'Foo was successfully updated.' }
         format.json { head :no_content }
       else
@@ -86,7 +86,19 @@ class FoosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def foo_params
-      params.require(:foo).permit(:bar)
+      if ::Rails::VERSION::MAJOR == 3
+        params[:foo]
+      else
+        params.require(:foo).permit(:bar)
+      end
+    end
+
+    def foo_update
+      if ::Rails::VERSION::MAJOR == 3
+        @foo.update_attributes(foo_params)
+      else
+        @foo.update(foo_params)
+      end
     end
 end
 

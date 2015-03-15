@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/rails/rails.git
-  revision: 6f158c9293adb3e660d0c7a8180dfa79de81881b
+  revision: 807f31bd7e6786fc2912b2d93c9ecc0ae91d73fe
   branch: 4-2-stable
   specs:
     actionmailer (4.2.0)
@@ -58,7 +58,7 @@ GIT
 PATH
   remote: ../
   specs:
-    before_actions (2.0.2)
+    before_actions (2.0.3)
 
 GEM
   remote: https://rubygems.org/
